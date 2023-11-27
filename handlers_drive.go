@@ -121,6 +121,7 @@ func uploadHandler(ctx cli.Context) {
 		Name:        args.String("name"),
 		Description: args.String("description"),
 		Parents:     args.StringSlice("parent"),
+		DriveId:     args.String("drive"),
 		Mime:        args.String("mime"),
 		Recursive:   args.Bool("recursive"),
 		Share:       args.Bool("share"),
@@ -139,6 +140,7 @@ func uploadStdinHandler(ctx cli.Context) {
 		Name:        args.String("name"),
 		Description: args.String("description"),
 		Parents:     args.StringSlice("parent"),
+		DriveId:     args.String("drive"),
 		Mime:        args.String("mime"),
 		Share:       args.Bool("share"),
 		ChunkSize:   args.Int64("chunksize"),
@@ -236,6 +238,7 @@ func mkdirHandler(ctx cli.Context) {
 		Name:        args.String("name"),
 		Description: args.String("description"),
 		Parents:     args.StringSlice("parent"),
+		DriveId:     args.String("drive"),
 	})
 	checkErr(err)
 }

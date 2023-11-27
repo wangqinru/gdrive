@@ -12,9 +12,9 @@ type DeleteArgs struct {
 }
 
 func (self *Drive) Delete(args DeleteArgs) error {
-	f, err := self.service.Files.Get(args.Id).Fields("name", "mimeType").Do()
+	f, err := self.service.Files.Get(args.Id).SupportsAllDrives(true).Fields("name", "mimeType").Do()
 	if err != nil {
-		return fmt.Errorf("Failed to get file: %s", err)
+		return fmt.Errorf("[Delete]Failed to get file: %s", err)
 	}
 
 	if isDir(f) && !args.Recursive {

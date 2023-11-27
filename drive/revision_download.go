@@ -24,7 +24,7 @@ func (self *Drive) DownloadRevision(args DownloadRevisionArgs) (err error) {
 
 	rev, err := getRev.Fields("originalFilename").Do()
 	if err != nil {
-		return fmt.Errorf("Failed to get file: %s", err)
+		return fmt.Errorf("[DownloadRevision]Failed to get file: %s", err)
 	}
 
 	if rev.OriginalFilename == "" {

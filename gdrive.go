@@ -214,6 +214,11 @@ func main() {
 						Description: "Parent id, used to upload file to a specific directory, can be specified multiple times to give many parents",
 					},
 					cli.StringFlag{
+						Name:        "drive",
+						Patterns:    []string{"-d", "--drive"},
+						Description: "Share drive id",
+					},
+					cli.StringFlag{
 						Name:        "name",
 						Patterns:    []string{"--name"},
 						Description: "Filename",
@@ -272,6 +277,11 @@ func main() {
 						Name:        "parent",
 						Patterns:    []string{"-p", "--parent"},
 						Description: "Parent id, used to upload file to a specific directory, can be specified multiple times to give many parents",
+					},
+					cli.StringFlag{
+						Name:        "drive",
+						Patterns:    []string{"-d", "--drive"},
+						Description: "Share drive id",
 					},
 					cli.IntFlag{
 						Name:         "chunksize",

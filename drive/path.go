@@ -2,8 +2,9 @@ package drive
 
 import (
 	"fmt"
-	"google.golang.org/api/drive/v3"
 	"path/filepath"
+
+	"google.golang.org/api/drive/v3"
 )
 
 func (self *Drive) newPathfinder() *remotePathfinder {
@@ -53,9 +54,9 @@ func (self *remotePathfinder) getParent(id string) (*drive.File, error) {
 	}
 
 	// Fetch file from drive
-	f, err := self.service.Get(id).Fields("id", "name", "parents").Do()
+	f, err := self.service.Get(id).SupportsAllDrives(true).Fields("id", "name", "parents").Do()
 	if err != nil {
-		return nil, fmt.Errorf("Failed to get file: %s", err)
+		return nil, fmt.Errorf("[getParent]Failed to get file: %s", err)
 	}
 
 	// Save in cache
