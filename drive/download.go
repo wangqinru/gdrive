@@ -127,7 +127,7 @@ func (self *Drive) downloadBinary(f *drive.File, args DownloadArgs) (int64, int6
 	// Get timeout reader wrapper and context
 	timeoutReaderWrapper, ctx := getTimeoutReaderWrapperContext(args.Timeout)
 
-	res, err := self.service.Files.Get(f.Id).Context(ctx).Download()
+	res, err := self.service.Files.Get(f.Id).SupportsAllDrives(true).Context(ctx).Download()
 	if err != nil {
 		if isTimeoutError(err) {
 			return 0, 0, fmt.Errorf("Failed to download file: timeout, no data was transferred for %v", args.Timeout)
